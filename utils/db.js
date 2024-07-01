@@ -1,4 +1,5 @@
 const { MongoClient } = require("mongodb");
+import mongodb from 'mongodb';
 
 class DBClient {
     constructor() {
@@ -7,21 +8,21 @@ class DBClient {
         const database = process.env.DB_DATBASE || 'files_manager';
         const url = `mongodb://${host}:${port}/${database}`;
 
-        this.client = new MongoClient(url, {useUnifiedTopology: true});
-        this.client.connect();
-    }
-
-    isAlive() {
+        this.client = new mongodb.MongoClient(url, { useUnifiedTopology: true });
         this.client.connect();
     };
 
+    isAlive() {
+        this.client.isConnected;
+    };
+
     async nbUsers() {
-        return this.client.db.collection('users').count();
-    }
+        return this.client.db.collection('users').countDocuments();
+    };
 
     async nbFiles() {
-        return this.client.db.collection('files').count();
-    }
+        return this.client.db.collection('files').countDocuments();
+    };
 }
 const dbClient = new DBClient();
 export default dbClient;

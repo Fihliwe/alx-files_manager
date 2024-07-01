@@ -19,8 +19,9 @@
         "express": "^4.17.1",
         "image-thumbnail": "^1.0.10",
         "mime-types": "^2.1.27",
-        "mongodb": "^3.5.9",
+        "mongodb": "^3.7.4",
         "mongodbjs": "^0.0.10",
+        "npm": "^10.8.1",
         "redis": "^2.8.0",
         "sha1": "^1.1.1",
         "uuid": "^8.2.0"
