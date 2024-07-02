@@ -13,15 +13,15 @@ class DBClient {
     };
 
     isAlive() {
-        this.client.isConnected;
+        this.client.isConnected();
     };
 
     async nbUsers() {
-        return this.client.db.collection('users').countDocuments();
+        return this.client.db().collection('users').countDocuments();
     };
 
     async nbFiles() {
-        return this.client.db.collection('files').countDocuments();
+        return this.client.db().collection('files').countDocuments();
     };
 }
 const dbClient = new DBClient();
